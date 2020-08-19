@@ -1,6 +1,32 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Muli:wght@300;400;500&display=swap");
-  
+
+@-webkit-keyframes kenburns-bottom-right
+  0% 
+  -webkit-transform: scale(1) translate(0, 0);
+  transform: scale(1) translate(0, 0);
+  -webkit-transform-origin: 84% 84%;
+  transform-origin: 84% 84%;
+
+  100%
+  -webkit-transform: scale(1.25) translate(20px, 15px);
+  transform: scale(1.25) translate(20px, 15px);
+  -webkit-transform-origin: right bottom;
+  transform-origin: right bottom;
+
+@keyframes kenburns-bottom-right 
+  0%
+    -webkit-transform: scale(1) translate(0, 0);
+    transform: scale(1) translate(0, 0);
+    -webkit-transform-origin: 84% 84%;
+    transform-origin: 84% 84%;
+
+  100%
+    -webkit-transform: scale(1.25) translate(20px, 15px);
+    transform: scale(1.25) translate(20px, 15px);
+    -webkit-transform-origin: right bottom;
+    transform-origin: right bottom;
+
 html,
 body
   height: 100%;
@@ -39,11 +65,12 @@ body
   width: 100%;
   max-width: 100%;
   height: 80px;
+  transition: all 1s;
   background: linear-gradient(180deg, rgba(0,0,0,0.95) 10%, rgba(0,0,0,0.8) 25%, rgba(0,0,0,0.1) 90%);
   &:hover
     background: rgba(23,23,26,0.75);
     .link
-      border : 1px solid white;
+      border: 1px solid white;
 
   .left-links,
   .right-links
@@ -61,22 +88,27 @@ body
     margin: 15px;
     padding: 10px;
     font-family: Muli;
+    transition: all 300ms;
+    background: transparent;
 
     &:hover
       background: hsl(171, 100%, 29%);
 
+.kenburns-bottom-right
+  -webkit-animation: kenburns-bottom-right 30s ease-in-out infinite alternate both;
+  animation: kenburns-bottom-right 30s ease-in-out infinite alternate both;
 
 .index-titre
   font-size: 5rem;
   text-shadow: 1px 1px #ADADAD;
 
-  @media screen and ( max-width: 768px )
+  @media screen and ( max-width: 1024px )
     font-size: 2.5rem;
     
 
 .index-citation
   text-shadow: 1px 1px #ADADAD;
-  position: relative;
+  position: absolute;
   display: flex;
   justify-content: flex-end;
   padding-right: 15%;
@@ -91,6 +123,61 @@ body
 
 .section-presentation
   background: hsl(171, 100%, 29%);
+  display: flex;
+
+  .presentation-item
+    display: flex;
+    flex: 1 0 33%;
+    justify-content: center;
+    align-items: center;
+
+    @media screen and ( max-width: 1024px )
+      flex: 1 0 50%;
+
+    @media screen and ( max-width: 425px )
+      flex: 1 0 100%;
+
+.section-offres
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  width: 100%;
+  background: #fafafa;
+  padding: 30px 0;
+
+  .offre-item
+    height: 300px;
+    display: flex;
+    flex: 0 0 20%;
+    transition: all 2s;
+    border-radius: 15px;
+    margin: 15px 0;
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+    background-size: 100% 100%;
+    filter: brightness(0.7) saturate(150%) contrast(190%);
+
+    @media screen and ( max-width: 1024px )
+      flex: 0 0 40%;
+
+    @media screen and ( max-width: 425px )
+      flex: 0 0 90%;
+    
+    &:hover
+      filter: brightness(1) saturate(100%) contrast(100%);
+      background-size: 120% 120%;
+
+.section-breves
+  background: white;
+  width: 100%;
+  min-height: 450px; 
+  border-top: 1px solid #ACACAC;
+  border-bottom: 1px solid #ACACAC;
+
+.section-contact
+  background: hsl(141, 53%, 31%);
+  min-height: 450px;
+  width: 100%;
+
 
 @import "~bulma"
 

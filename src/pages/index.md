@@ -7,11 +7,11 @@ citation:
 image: /img/glider-index.jpeg
 presentationItems:
   - titre: Le vol à voile
-    description: description du vol a voile
+    description: Découvrez le principe unique du vol sans moteur
   - titre: Le club
-    description: description du club
+    description: Une équipe de passionés bénévoles
   - titre: Le matériel
-    description: description du matériel
+    description: Découvrez notre flotte
 offreItems:
   - titre: Le vol d'initiation en planeur ou motoplaneur
     description: description vol initiation en planeur/motoplaneur
