@@ -1,6 +1,6 @@
 ---
 templateKey: index-page
-title: Les Ailes du Maine
+title: Les Ailes du Maine || Planeur
 citation:
   content: Eh ! qu'aimes-tu donc extraordinaire Etranger ? J'aime les nuages... les nuages qui passent...là-bas...là-bas... les merveilleux nuages !
   auteur: Ch. Baudelaire, "L'étranger"
@@ -8,10 +8,26 @@ image: /img/glider-index.jpeg
 presentationItems:
   - titre: Le vol à voile
     description: Découvrez le principe unique du vol sans moteur
+    image: /img/imgcard.jpg
+    bulletPoints:
+      - bulletpoint1
+      - bulletpoint2
+      - bulletpoint3
   - titre: Le club
     description: Une équipe de passionés bénévoles
+    image: /img/imgcard.jpg
+    bulletPoints:
+      - bulletpoint1
+      - bulletpoint2
+      - bulletpoint3
+      - bulletpoint4
   - titre: Le matériel
     description: Découvrez notre flotte
+    image: /img/imgcard.jpg
+    bulletPoints:
+      - bulletpoint1
+      - bulletpoint2
+      - bulletpoint3
 offreItems:
   - titre: Le vol d'initiation en planeur ou motoplaneur
     description: description vol initiation en planeur/motoplaneur

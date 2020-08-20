@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { Helmet } from 'react-helmet'
 import Footer from '../components/Footer'
 import Navbar from '../components/Navbar'
@@ -6,8 +6,24 @@ import './all.sass'
 import useSiteMetadata from './SiteMetadata'
 import { withPrefix } from 'gatsby'
 
+import { useScrollPosition } from '../hooks/useScrollPosition'
+
 const TemplateWrapper = ({ children }) => {
   const { title, description } = useSiteMetadata()
+
+  const [hideOnScroll, setHideOnScroll] = useState(true)
+
+  useScrollPosition(
+    ({ prevPos, currPos }) => {
+      const isShow = currPos.y > prevPos.y
+      if (isShow !== hideOnScroll) setHideOnScroll(isShow)
+    },
+    [hideOnScroll],
+    null,
+    false,
+    300
+  )
+
   return (
     <div>
       <Helmet>
@@ -48,7 +64,7 @@ const TemplateWrapper = ({ children }) => {
           content={`${withPrefix('/')}img/og-image.jpg`}
         />
       </Helmet>
-      <Navbar />
+      <Navbar show={hideOnScroll} />
       <div>{children}</div>
       <Footer />
     </div>

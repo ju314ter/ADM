@@ -54,7 +54,6 @@ body
   @import "~bulma/sass/utilities/initial-variables"
 
 // Config vars
-
 .custom-navbar
   z-index: 1000;
   position: fixed;
@@ -65,10 +64,11 @@ body
   width: 100%;
   max-width: 100%;
   height: 80px;
-  transition: all 1s;
-  background: linear-gradient(180deg, rgba(0,0,0,0.95) 10%, rgba(0,0,0,0.8) 25%, rgba(0,0,0,0.1) 90%);
+  transform: none;
+  visibility: visible;
+  transition: all 200ms ease-in;
+  background: rgba(23,23,26,0.75);
   &:hover
-    background: rgba(23,23,26,0.75);
     .link
       border: 1px solid white;
 
@@ -94,6 +94,11 @@ body
     &:hover
       background: hsl(171, 100%, 29%);
 
+.hidden-menu
+  transform: translate(0,-100%);
+  visibility: hidden;
+  transition: all 200ms ease-out;
+
 .kenburns-bottom-right
   -webkit-animation: kenburns-bottom-right 30s ease-in-out infinite alternate both;
   animation: kenburns-bottom-right 30s ease-in-out infinite alternate both;
@@ -101,6 +106,16 @@ body
 .index-titre
   font-size: 5rem;
   text-shadow: 1px 1px #ADADAD;
+  position: absolute;
+  top: 160px;
+  left: 5%;
+  font-weight: 300;
+  box-shadow: hsl(171, 100%, 29%) 0.5rem 0px 0px, hsl(171, 100%, 29%) -0.5rem 0px 0px;
+  color: white;
+  line-height: 1;
+  letter-spacing: 6px;
+  padding: 0.25em;
+  text-transform: uppercase;
 
   @media screen and ( max-width: 1024px )
     font-size: 2.5rem;
@@ -115,15 +130,25 @@ body
   align-items: center;
   text-align: center;
   width: 100%;
-  top: 40%;
+  top: 60%;
   color: white;
-  
+
   .citation-wrapper
     width: 60%;
 
 .section-presentation
   background: hsl(171, 100%, 29%);
   display: flex;
+
+  .presentation-items-wrapper
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    width: 100%;
+    min-height: 300px;
+    position: relative;
+    top: -50px;
+    padding: 10px 0;
 
   .presentation-item
     display: flex;
@@ -133,22 +158,47 @@ body
 
     @media screen and ( max-width: 1024px )
       flex: 1 0 50%;
+      padding: 10px 0;
 
     @media screen and ( max-width: 425px )
       flex: 1 0 100%;
+  
+  .mat-card
+    width: 80%;
+    transition: all 300ms;
+
+    .btn-card
+      font-weight: 600;
+      border: 1px solid hsl(171,100%,29%);
+      color: hsl(171,100%,29%);
+      transition: all 200ms;
+
+      &:hover
+        background: hsl(171,100%,29%);
+        color: white;
+
+
+    h2
+      font-family: Muli;
+      color: hsl(171, 100%, 29%);
+      font-size: 2rem;
+      font-weight: 600;
+
+    &:hover
+      transform: scale(1.15);
 
 .section-offres
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
   width: 100%;
-  background: #fafafa;
+  background: cyan;
   padding: 30px 0;
 
   .offre-item
     height: 300px;
     display: flex;
-    flex: 0 0 20%;
+    flex: 0 0 40%;
     transition: all 2s;
     border-radius: 15px;
     margin: 15px 0;
@@ -156,10 +206,7 @@ body
     background-size: 100% 100%;
     filter: brightness(0.7) saturate(150%) contrast(190%);
 
-    @media screen and ( max-width: 1024px )
-      flex: 0 0 40%;
-
-    @media screen and ( max-width: 425px )
+    @media screen and ( max-width: 768px )
       flex: 0 0 90%;
     
     &:hover

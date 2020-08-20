@@ -4,6 +4,13 @@ import { Link, graphql } from 'gatsby'
 
 import Layout from '../components/Layout'
 
+import Card from '@material-ui/core/Card';
+import CardActionArea from '@material-ui/core/CardActionArea';
+import CardActions from '@material-ui/core/CardActions';
+import CardContent from '@material-ui/core/CardContent';
+import CardMedia from '@material-ui/core/CardMedia';
+import Button from '@material-ui/core/Button';
+
 export const IndexPageTemplate = ({
   image,
   title,
@@ -42,48 +49,43 @@ export const IndexPageTemplate = ({
           flexDirection: 'column',
         }}
       >
-        <h1
-          className="index-titre has-text-weight-light"
-          style={{
-            position: 'absolute',
-            top: 150,
-            left: '5%',
-            fontWeight: 'lighter',
-            boxShadow:
-              'hsl(171, 100%, 29%) 0.5rem 0px 0px, hsl(171, 100%, 29%) -0.5rem 0px 0px',
-            color: 'white',
-            lineHeight: '1',
-            letterSpacing: '6px',
-            padding: '0.25em',
-            textTransform: 'uppercase'
-          }}
-        >
+        <h1 className="index-titre has-text-weight-light">
           {title}
         </h1>
       </div>
       <div className="index-citation">
         <div className="citation-wrapper">
-          <h2 className="is-size-5-mobile is-size-4-tablet is-size-3-widescreen">{citation.content}</h2>
-          <p className="is-italic is-size-6-mobile is-size-5-tablet is-size-4-widescreen">{citation.auteur}</p>
+          <h2 className="is-size-6-mobile is-size-5-tablet is-size-3-widescreen">{citation.content}</h2>
+          <p className="is-italic is-size-7-mobile is-size-5-tablet is-size-4-widescreen">{citation.auteur}</p>
         </div>
       </div>
       <section className="section-presentation" style={{ minHeight: '150px' }}>
-        <div className="presentation-items-wrapper"
-          style={{
-            display: 'flex',
-            flexWrap: 'wrap',
-            justifyContent: 'space-evenly',
-            width: '100%',
-            minHeight: '300px',
-            position: 'relative',
-            top: '-100px',
-            background: 'rgba(0,0,0,0.3)',
-          }}>
+        <div className="presentation-items-wrapper">
           {presentationItems.map((item) => (
             <div key={item.titre} className="presentation-item">
-              <div style={{ color: 'white' }}>{item.titre}</div>
-              <div style={{ color: 'white' }}>{item.description}</div>
-              <button>En savoir +</button>
+              <Card className='mat-card'>
+                <CardActionArea>
+                  <CardMedia
+                    style={{ height: 200 }}
+                    image={item.image.childImageSharp.fluid.src}
+                    title={item.titre}
+                  />
+                  <CardContent style={{ display: 'flex', justifyContent: 'center', alignItems: 'stretch', flexDirection: 'column', textAlign: 'center' }}>
+                    <h2>{item.titre}</h2>
+                    <div style={{ color: 'hsl(141, 53%, 31%)', fontWeight: 300 }}>{item.description}</div>
+                    <ul>
+                      {item.bulletPoints.map((bulletpoint) => {
+                        return <li key={bulletpoint}>{bulletpoint}</li>
+                      })}
+                    </ul>
+                  </CardContent>
+                </CardActionArea>
+                <CardActions style={{ display: 'flex', justifyContent: 'center' }}>
+                  <Button size="small" color="primary" className="btn-card">
+                    En savoir plus !
+                    </Button>
+                </CardActions>
+              </Card>
             </div>
           ))}
         </div>
@@ -100,13 +102,14 @@ export const IndexPageTemplate = ({
             <div style={{
               display: 'flex',
               justifyContent: 'center',
+              flexDirection: 'column',
               alignItems: 'center',
               color: 'white',
               width: '100%'
             }}>
               <div>
                 <span>{item.titre}</span>
-                <button>Se renseigner</button>
+                <Button className='btn-card'>Se renseigner</Button>
               </div>
             </div>
           </div>
@@ -176,6 +179,14 @@ export const pageQuery = graphql`
         presentationItems {
           titre
           description
+          bulletPoints
+          image {
+            childImageSharp {
+              fluid(maxWidth: 2048, quality: 100) {
+                ...GatsbyImageSharpFluid
+              }
+            }
+          }
         }
         offreItems {
           titre
