@@ -140,6 +140,9 @@ body
   background: hsl(171, 100%, 29%);
   display: flex;
 
+  @media screen and ( min-width: 1024px )
+    height: 300px;
+
   .presentation-items-wrapper
     display: flex;
     flex-wrap: wrap;
@@ -153,6 +156,7 @@ body
   .presentation-item
     display: flex;
     flex: 1 0 33%;
+    margin: 10px 0;
     justify-content: center;
     align-items: center;
 
@@ -192,26 +196,49 @@ body
   flex-wrap: wrap;
   justify-content: space-evenly;
   width: 100%;
-  background: cyan;
+  background: #216259;
   padding: 30px 0;
+
+  @media screen and ( min-width: 1024px )
+    padding: 180px 0;
 
   .offre-item
     height: 300px;
     display: flex;
     flex: 0 0 40%;
-    transition: all 2s;
     border-radius: 15px;
     margin: 15px 0;
     box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
     background-size: 100% 100%;
     filter: brightness(0.7) saturate(150%) contrast(190%);
+    transition: transform 200ms ease-in-out, filter 2s ease-in-out, background-size 2s ease-in-out;
 
     @media screen and ( max-width: 768px )
       flex: 0 0 90%;
     
     &:hover
       filter: brightness(1) saturate(100%) contrast(100%);
+      transform: scale(1.05);
       background-size: 120% 120%;
+
+    h2
+      font-family: Muli;
+      color: white;
+      font-size: 2rem;
+      font-weight: 600;
+
+    .btn-card
+      margin-top: 15px;
+      font-weight: 600;
+      color: white;
+      background: hsl(171,100%,29%);
+      border: 1px solid hsl(171,100%,29%);
+      transition: all 200ms;
+
+      &:hover
+        background: transparent;
+        color: white;
+
 
 .section-breves
   background: white;

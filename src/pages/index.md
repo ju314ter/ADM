@@ -5,6 +5,7 @@ citation:
   content: Eh ! qu'aimes-tu donc extraordinaire Etranger ? J'aime les nuages... les nuages qui passent...là-bas...là-bas... les merveilleux nuages !
   auteur: Ch. Baudelaire, "L'étranger"
 image: /img/glider-index.jpeg
+backgroundOffres: /img/lemans.jpg
 presentationItems:
   - titre: Le vol à voile
     description: Découvrez le principe unique du vol sans moteur

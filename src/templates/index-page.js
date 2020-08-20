@@ -13,6 +13,7 @@ import Button from '@material-ui/core/Button';
 
 export const IndexPageTemplate = ({
   image,
+  backgroundOffres,
   title,
   citation,
   presentationItems,
@@ -24,7 +25,7 @@ export const IndexPageTemplate = ({
       <div
         className="full-width-image margin-top-0"
         style={{
-          height: '98vh',
+          height: '100vh',
           overflow: 'hidden'
         }}
       >
@@ -59,7 +60,7 @@ export const IndexPageTemplate = ({
           <p className="is-italic is-size-7-mobile is-size-5-tablet is-size-4-widescreen">{citation.auteur}</p>
         </div>
       </div>
-      <section className="section-presentation" style={{ minHeight: '150px' }}>
+      <section className="section-presentation">
         <div className="presentation-items-wrapper">
           {presentationItems.map((item) => (
             <div key={item.titre} className="presentation-item">
@@ -90,7 +91,15 @@ export const IndexPageTemplate = ({
           ))}
         </div>
       </section>
-      <section className="section-offres">
+      <section className="section-offres"
+        style={{
+          backgroundImage: `url(${
+            !!backgroundOffres.childImageSharp ? backgroundOffres.childImageSharp.fluid.src : backgroundOffres
+            })`,
+          backgroundPosition: `center`,
+          backgroundAttachment: `fixed`,
+          backgroundSize: 'cover',
+        }}>
         {offreItems.map((item) => (
           <div key={item.titre} className="offre-item"
             style={{
@@ -102,15 +111,21 @@ export const IndexPageTemplate = ({
             <div style={{
               display: 'flex',
               justifyContent: 'center',
-              flexDirection: 'column',
               alignItems: 'center',
+              flexDirection: 'column',
               color: 'white',
               width: '100%'
             }}>
-              <div>
-                <span>{item.titre}</span>
-                <Button className='btn-card'>Se renseigner</Button>
+              <div style={{
+                display: 'flex',
+                width: '75%',
+                background: 'rgba(0,0,0,0.2)',
+                textAlign: 'center',
+                justifyContent: 'center'
+              }}>
+                <h2>{item.titre}</h2>
               </div>
+              <Button className='btn-card'>Se renseigner</Button>
             </div>
           </div>
         ))}
@@ -128,6 +143,7 @@ export const IndexPageTemplate = ({
 
 IndexPageTemplate.propTypes = {
   image: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
+  backgroundOffres: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
   title: PropTypes.string,
   citation: PropTypes.object,
   presentationItems: PropTypes.array,
@@ -141,6 +157,7 @@ const IndexPage = ({ data }) => {
     <Layout>
       <IndexPageTemplate
         image={frontmatter.image}
+        backgroundOffres={frontmatter.backgroundOffres}
         title={frontmatter.title}
         citation={frontmatter.citation}
         presentationItems={frontmatter.presentationItems}
@@ -170,6 +187,13 @@ export const pageQuery = graphql`
           auteur
         }
         image {
+          childImageSharp {
+            fluid(maxWidth: 2048, quality: 100) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
+        backgroundOffres {
           childImageSharp {
             fluid(maxWidth: 2048, quality: 100) {
               ...GatsbyImageSharpFluid
