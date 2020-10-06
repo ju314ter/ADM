@@ -41,6 +41,13 @@ export const IndexPageTemplate = ({
           }}>
         </div>
       </div>
+      <div className="clouds">
+        <img src="../img/clouds/cloud1.png" alt="cloud" className="cloud"></img>
+        <img src="../img/clouds/cloud2.png" alt="cloud" className="cloud"></img>
+        <img src="../img/clouds/cloud3.png" alt="cloud" className="cloud"></img>
+        <img src="../img/clouds/cloud4.png" alt="cloud" className="cloud"></img>
+        <img src="../img/clouds/cloud5.png" alt="cloud" className="cloud"></img>
+      </div>
       <div
         style={{
           display: 'flex',
@@ -119,7 +126,6 @@ export const IndexPageTemplate = ({
               <div style={{
                 display: 'flex',
                 width: '75%',
-                background: 'rgba(0,0,0,0.2)',
                 textAlign: 'center',
                 justifyContent: 'center'
               }}>
