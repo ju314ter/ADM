@@ -2,6 +2,8 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
 
+import Layout from '../components/Layout'
+
 
 export const EnvolPageTemplate = ({
 
@@ -9,7 +11,7 @@ export const EnvolPageTemplate = ({
 
     return (
         <div>
-            <p>Page découverte</p>
+            <p>Page envol</p>
         </div>
     )
 }
@@ -22,7 +24,7 @@ const EnvolPage = ({ data }) => {
 
     return (
         <Layout>
-            <DecouvertePageTemplate
+            <EnvolPageTemplate
             />
         </Layout>
     )
@@ -39,10 +41,10 @@ EnvolPage.propTypes = {
 export default EnvolPage
 
 export const pageQuery = graphql`
-  query IndexPageTemplate {
-    markdownRemark(frontmatter: { templateKey: { eq: "decouverte-page" } }) {
+  query EnvolPageTemplate {
+    markdownRemark(frontmatter: { templateKey: { eq: "envol-page" } }) {
       frontmatter {
-        
+        title
       }
     }
   }

@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
 
+import Layout from '../components/Layout'
 
 export const DecouvertePageTemplate = ({
 
@@ -39,10 +40,10 @@ DecouvertePage.propTypes = {
 export default DecouvertePage
 
 export const pageQuery = graphql`
-  query IndexPageTemplate {
+  query DecouvertePageTemplate {
     markdownRemark(frontmatter: { templateKey: { eq: "decouverte-page" } }) {
       frontmatter {
-        
+        title
       }
     }
   }
