@@ -123,15 +123,7 @@ export const IndexPageTemplate = ({
               color: 'white',
               width: '100%'
             }}>
-              <div style={{
-                display: 'flex',
-                width: '75%',
-                textAlign: 'center',
-                justifyContent: 'center',
-                alignItems: 'center',
-                borderRadius: 15,
-                backgroundColor: "rgba(250, 250, 250, 0.8)",
-                height: 150
+              <div className='content-card' style={{
               }}>
                 <h2>{item.titre}</h2>
               </div>
