@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Link, graphql } from 'gatsby'
+import { graphql } from 'gatsby'
 
 import Layout from '../components/Layout'
 
@@ -127,7 +127,11 @@ export const IndexPageTemplate = ({
                 display: 'flex',
                 width: '75%',
                 textAlign: 'center',
-                justifyContent: 'center'
+                justifyContent: 'center',
+                alignItems: 'center',
+                borderRadius: 15,
+                backgroundColor: "rgba(250, 250, 250, 0.8)",
+                height: 150
               }}>
                 <h2>{item.titre}</h2>
               </div>
@@ -136,13 +140,18 @@ export const IndexPageTemplate = ({
           </div>
         ))}
       </section>
-      <section className="section-breves">
-        <div>breves slideshow</div>
-      </section>
-      <section className="section-contact">
-        <div>Newsletter</div>
-        <div>Contact info card</div>
-      </section>
+      {/* <section className="section-contact">
+        <div className="facebook-slideshow">
+
+        </div>
+        <div className="contact-block">
+          <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
+            <input type="text" placeholder="Entrez votre e-mail" name="newsletter-input"></input>
+            <span>Abonnez vous à la newsletter !</span>
+          </div>
+          <div>Contact info card</div>
+        </div>
+      </section> */}
     </div>
   )
 }
