@@ -4,14 +4,15 @@ import { graphql } from 'gatsby'
 
 import Layout from '../components/Layout'
 
+// import ImageEnvol from '../img/envol.jpg'
 
 export const EnvolPageTemplate = ({
 
 }) => {
 
     return (
-        <div>
-            <p>Page envol</p>
+        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+            {/* <img src={ImageEnvol} style={{ width: '100%', height: '100%' }} className='kenburns-bottom-right' /> */}
         </div>
     )
 }

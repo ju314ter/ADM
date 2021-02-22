@@ -132,7 +132,7 @@ export const IndexPageTemplate = ({
           </div>
         ))}
       </section>
-      {/* <section className="section-contact">
+      <section className="section-contact">
         <div className="facebook-slideshow">
 
         </div>
@@ -143,7 +143,7 @@ export const IndexPageTemplate = ({
           </div>
           <div>Contact info card</div>
         </div>
-      </section> */}
+      </section>
     </div>
   )
 }

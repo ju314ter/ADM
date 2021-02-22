@@ -12,25 +12,25 @@ const Navbar = ({ show }) => {
       aria-label="main-navigation"
     >
       <div className="left-links is-flex">
-        <div className="link has-text-white-ter">
+        <Link className="link has-text-white-ter" to="/decouverte">
           Découvrir
-          </div>
-        <div className="link has-text-white-ter">
+        </Link>
+        <Link to="/envol" className="link has-text-white-ter">
           Prendre son envol
-          </div>
+          </Link>
       </div>
       <div className="middle-links">
-        <div className="has-text-white-ter">
+        <Link className="has-text-white-ter" to="/">
           <img src={logo} alt="Logo" style={{ width: 65 }} />
-        </div>
+        </Link>
       </div>
       <div className="right-links is-flex flex-end">
-        <div className="link has-text-white-ter">
+        <Link to="/tarif" className="link has-text-white-ter">
           Tarifs
-          </div>
-        <div className="link has-text-white-ter">
+          </Link>
+        <Link to="/mediatheque" className="link has-text-white-ter">
           Mediatheque
-          </div>
+          </Link>
       </div>
     </nav>
   )
