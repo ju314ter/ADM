@@ -15,6 +15,9 @@ const Navbar = ({ show }) => {
         <Link className="link has-text-white-ter" to="/decouverte">
           Découvrir
         </Link>
+        <Link className="link has-text-white-ter" to="/materiel">
+          Materiel
+        </Link>
         <Link to="/envol" className="link has-text-white-ter">
           Prendre son envol
           </Link>
@@ -25,6 +28,9 @@ const Navbar = ({ show }) => {
         </Link>
       </div>
       <div className="right-links is-flex flex-end">
+        <Link to="http://facebook.com" className="link has-text-white-ter">
+          Facebook
+          </Link>
         <Link to="/tarif" className="link has-text-white-ter">
           Tarifs
           </Link>

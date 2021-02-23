@@ -132,18 +132,6 @@ export const IndexPageTemplate = ({
           </div>
         ))}
       </section>
-      <section className="section-contact">
-        <div className="facebook-slideshow">
-
-        </div>
-        <div className="contact-block">
-          <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
-            <input type="text" placeholder="Entrez votre e-mail" name="newsletter-input"></input>
-            <span>Abonnez vous à la newsletter !</span>
-          </div>
-          <div>Contact info card</div>
-        </div>
-      </section>
     </div>
   )
 }

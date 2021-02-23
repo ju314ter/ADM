@@ -10,16 +10,16 @@ import '../components/decouverte.sass'
 
 export const DecouvertePageTemplate = ({
     intro,
-    illustration
+    illustration,
+    sections
 }) => {
 
     useState(() => {
-        // console.log(image)
     }, [])
 
 
     return (
-        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'top', flexWrap: 'wrap', height: '100vh' }}>
+        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'top', flexWrap: 'wrap' }}>
             <div className="full-width-image"
                 style={{
                     backgroundImage: `url(${
@@ -28,18 +28,43 @@ export const DecouvertePageTemplate = ({
                     backgroundPosition: `bottom right`,
                     backgroundAttachment: `fixed`,
                     backgroundSize: 'cover',
-                    height: '100vh',
                     width: '100%',
                     display: 'flex',
                     flexDirection: 'column',
                     justifyContent: 'center',
-                    alignItems: 'center'
+                    alignItems: 'center',
+                    height: '100vh',
                 }}>
                 {intro.map((paragraphe, index) => {
                     return <p className="intro-p" key={index}>{paragraphe}</p>
                 })}
             </div>
-            <div className="decouverte-intro">
+            <div className="decouverte-main">
+                {
+                    sections && sections.map((section, index) => {
+                        return (
+                            <div className="sections-wrapper" key={index}>
+
+                                <div className="sections-illustration" style={{
+                                    backgroundImage: `url(${
+                                        !!section.illustration.childImageSharp ? section.illustration.childImageSharp.fluid.src : section.illustration
+                                        })`,
+                                    backgroundSize: 'cover',
+                                    float: index % 2 == 0 ? 'left' : 'right',
+                                    margin: index % 2 == 0 ? '15px' : '15px'
+                                }} />
+                                <div>
+                                    <h1>{section.titre}</h1>
+                                    {
+                                        section && section.paragraphes.map((paragraphe, index) => {
+                                            return <p key={index}>{paragraphe}</p>
+                                        })
+                                    }
+                                </div>
+                            </div>
+                        )
+                    })
+                }
             </div>
         </div>
     )
@@ -48,19 +73,22 @@ export const DecouvertePageTemplate = ({
 DecouvertePageTemplate.propTypes = {
     intro: PropTypes.array,
     illustration: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
+    sections: PropTypes.array
 }
 
 const DecouvertePage = ({ data }) => {
     const { frontmatter } = data.markdownRemark
 
     useState(() => {
-        console.log(frontmatter)
+        // console.log('frontmatter')
+        // console.log(frontmatter)
     }, [])
     return (
         <Layout>
             <DecouvertePageTemplate
-                intro=''
-                illustration=''
+                intro={frontmatter.introduction}
+                illustration={frontmatter.illustration}
+                sections={frontmatter.sections}
             />
         </Layout>
     )
@@ -89,7 +117,17 @@ export const pageQuery = graphql`
           }
         }
         introduction
-        sections
+        sections {
+            titre
+            illustration {
+                childImageSharp {
+                    fluid(maxWidth: 2048, quality: 100) {
+                        ...GatsbyImageSharpFluid
+                    }
+                }
+            }
+            paragraphes
+        }
       }
     }
   }
