@@ -25,7 +25,7 @@ export const DecouvertePageTemplate = ({
                     backgroundImage: `url(${
                         !!illustration.childImageSharp ? illustration.childImageSharp.fluid.src : illustration
                         })`,
-                    backgroundPosition: `bottom right`,
+                    backgroundPosition: `center`,
                     backgroundAttachment: `fixed`,
                     backgroundSize: 'cover',
                     width: '100%',
@@ -33,7 +33,7 @@ export const DecouvertePageTemplate = ({
                     flexDirection: 'column',
                     justifyContent: 'center',
                     alignItems: 'center',
-                    height: '100vh',
+                    minHeight: '100vh', // ou hauteur des cartes
                 }}>
                 {intro.map((paragraphe, index) => {
                     return <p className="intro-p" key={index}>{paragraphe}</p>
