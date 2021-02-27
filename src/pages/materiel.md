@@ -1,6 +1,7 @@
 ---
 templateKey: materiel-page
-title: Les Ailes du Maine || Planeur
+title: Les Ailes du Maine || Materiel
+illustration : '/img/envol.jpg'
 introduction: 
     - Les planeurs doivent être les plus économes possible en énergie, pour voler loin sans perdre trop d'altitude. Ils se caractérisent par un profil particulièrement aérodynamique et des ailes très fines et très longues. En outre ils doivent être particulièrement résistant comme suite à l'utilisation exigente qui en est faite.
     - L'absence d'hélice permet d'utiliser un train d'atterissage très bas, souvent une seul roue centrale, fixe ou rentrante. De fait un planeur doit être maintenu en bout d'aile pour tous mouvements au sol.
@@ -9,7 +10,7 @@ introduction:
     - Les premiers planeurs étaient constitués de bois et de toile, matériaux dont la résistance ne permet pas d'obtenir de bonnes caractéristiques telles que sus citées. Les planeurs modernes sont constitués de fibres de verre, voir de carbone, bien plus résistantes que la bois, permettant de faire des ailes à la fois très fines, très longues et très résistantes, ainsi que des formes complexes.
     - C'est pour ces raisons que tous les planeurs du club sont constitués de fibres de verre.
 materiel :
-    planeurs-bi :
+    planeursBi :
         - nom : placeholder name
           uri_photo : /img/
           hyperlink : 'https://'
@@ -22,8 +23,7 @@ materiel :
           uri_photo : /img/
           hyperlink : 'https://'
           description :  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ultrices, felis posuere efficitur laoreet, velit tortor suscipit arcu, a vulputate purus ipsum at nisl. Maecenas at massa interdum, vulputate lorem in, consequat leo.
-
-    planeurs-mono :
+    planeursMono :
         - nom : placeholder name
           uri_photo : /img/
           hyperlink : 'https://'
@@ -32,7 +32,6 @@ materiel :
           uri_photo : /img/
           hyperlink : 'https://'
           description :  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ultrices, felis posuere efficitur laoreet, velit tortor suscipit arcu, a vulputate purus ipsum at nisl. Maecenas at massa interdum, vulputate lorem in, consequat leo.
-
     autre:
         - nom : placeholder name
           uri_photo : /img/

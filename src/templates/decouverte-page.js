@@ -53,7 +53,7 @@ export const DecouvertePageTemplate = ({
                 {
                     sections && sections.map((section, index) => {
                         return (
-                            <div className="sections-wrapper" key={index}>
+                            <div className="sections-wrapper" key={index} id={section.id}>
 
                                 <div className="sections-illustration" style={{
                                     backgroundImage: `url(${
@@ -133,6 +133,7 @@ export const pageQuery = graphql`
         introduction
         sections {
             titre
+            id
             illustration {
                 childImageSharp {
                     fluid(maxWidth: 2048, quality: 100) {

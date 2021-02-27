@@ -10,6 +10,7 @@ import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
+import { Link } from 'gatsby'
 
 export const IndexPageTemplate = ({
   image,
@@ -109,7 +110,7 @@ export const IndexPageTemplate = ({
                 </CardActionArea>
                 <CardActions style={{ display: 'flex', justifyContent: 'center' }}>
                   <Button size="small" color="primary" className="btn-card">
-                    En savoir plus !
+                    <Link to={item.link} class="inner-link">En savoir plus !</Link>
                     </Button>
                 </CardActions>
               </Card>
@@ -220,6 +221,7 @@ export const pageQuery = graphql`
         presentationItems {
           titre
           description
+          link
           bulletPoints
           image {
             childImageSharp {

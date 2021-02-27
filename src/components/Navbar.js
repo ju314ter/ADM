@@ -28,9 +28,9 @@ const Navbar = ({ show }) => {
         </Link>
       </div>
       <div className="right-links is-flex flex-end">
-        <Link to="http://facebook.com" activeClassName="activeLink" className="link has-text-white-ter">
+        <a to="https://www.facebook.com/AilesDuMaine/" className="link has-text-white-ter">
           Facebook
-          </Link>
+          </a>
         <Link to="/tarif" activeClassName="activeLink" className="link has-text-white-ter">
           Tarifs
           </Link>
