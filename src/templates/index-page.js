@@ -87,6 +87,7 @@ export const IndexPageTemplate = ({
           {presentationItems.map((item, index) => (
             <div key={item.titre} className="presentation-item"
             data-sal="slide-up"
+            data-sal-delay={150*index}
             data-sal-duration="1000"
             data-sal-easing="ease-out">
               <Card className='mat-card'>
