@@ -34,7 +34,7 @@ export const MaterielPageTemplate = ({
                     flexDirection: 'column',
                     justifyContent: 'center',
                     alignItems: 'center',
-                    minHeight: '100vh', // ou hauteur des cartes
+                    minHeight: '100vh'
                 }}>
                 <h1>Comment fonctionne un planeur ?</h1>
                 {intro && intro.map((paragraphe, index) => {

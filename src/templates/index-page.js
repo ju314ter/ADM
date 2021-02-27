@@ -110,7 +110,7 @@ export const IndexPageTemplate = ({
                 </CardActionArea>
                 <CardActions style={{ display: 'flex', justifyContent: 'center' }}>
                   <Button size="small" color="primary" className="btn-card">
-                    <Link to={item.link} class="inner-link">En savoir plus !</Link>
+                    <Link to={item.link} className="inner-link">En savoir plus !</Link>
                     </Button>
                 </CardActions>
               </Card>
