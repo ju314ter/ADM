@@ -15,6 +15,7 @@ export const IndexPageTemplate = ({
   image,
   backgroundOffres,
   title,
+  subtitle,
   citation,
   presentationItems,
   offreItems
@@ -57,20 +58,37 @@ export const IndexPageTemplate = ({
           flexDirection: 'column',
         }}
       >
-        <h1 className="index-titre has-text-weight-light">
+        <h1 className="index-title has-text-weight-light"
+          data-sal="fade"
+          data-sal-delay="300"
+          data-sal-duration="500"
+          data-sal-easing="ease">
           {title}
         </h1>
+        <h2 className="index-subtitle has-text-weight-light"
+          data-sal="slide-up"
+          data-sal-delay="500"
+          data-sal-duration="1000"
+          data-sal-easing="ease">
+          {subtitle}
+        </h2>
       </div>
       <div className="index-citation">
-        <div className="citation-wrapper">
-          <h2 className="is-size-6-mobile is-size-5-tablet is-size-3-widescreen">{citation.content}</h2>
-          <p className="is-italic is-size-7-mobile is-size-5-tablet is-size-4-widescreen">{citation.auteur}</p>
+        <div className="citation-wrapper"
+          data-sal="slide-left"
+          data-sal-duration="1000"
+          data-sal-easing="ease">
+          <h2>"{citation.content}"</h2>
+          <p>{citation.auteur}</p>
         </div>
       </div>
       <section className="section-presentation">
         <div className="presentation-items-wrapper">
-          {presentationItems.map((item) => (
-            <div key={item.titre} className="presentation-item">
+          {presentationItems.map((item, index) => (
+            <div key={item.titre} className="presentation-item"
+            data-sal="slide-up"
+            data-sal-duration="1000"
+            data-sal-easing="ease-out">
               <Card className='mat-card'>
                 <CardActionArea>
                   <CardMedia
@@ -81,7 +99,7 @@ export const IndexPageTemplate = ({
                   <CardContent style={{ display: 'flex', justifyContent: 'center', alignItems: 'stretch', flexDirection: 'column', textAlign: 'center' }}>
                     <h2>{item.titre}</h2>
                     <div style={{ color: 'hsl(141, 53%, 31%)', fontWeight: 300 }}>{item.description}</div>
-                    <ul>
+                    <ul style={{paddingLeft: '0px'}}>
                       {item.bulletPoints.map((bulletpoint) => {
                         return <li key={bulletpoint}>{bulletpoint}</li>
                       })}
@@ -107,7 +125,7 @@ export const IndexPageTemplate = ({
           backgroundAttachment: `fixed`,
           backgroundSize: 'cover',
         }}>
-        {offreItems.map((item) => (
+        {offreItems.map((item, index) => (
           <div key={item.titre} className="offre-item"
             style={{
               backgroundImage: `url(${
@@ -140,6 +158,7 @@ IndexPageTemplate.propTypes = {
   image: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
   backgroundOffres: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
   title: PropTypes.string,
+  subtitle: PropTypes.string,
   citation: PropTypes.object,
   presentationItems: PropTypes.array,
   offreItems: PropTypes.array
@@ -154,6 +173,7 @@ const IndexPage = ({ data }) => {
         image={frontmatter.image}
         backgroundOffres={frontmatter.backgroundOffres}
         title={frontmatter.title}
+        subtitle={frontmatter.subtitle}
         citation={frontmatter.citation}
         presentationItems={frontmatter.presentationItems}
         offreItems={frontmatter.offreItems}
@@ -177,6 +197,7 @@ export const pageQuery = graphql`
     markdownRemark(frontmatter: { templateKey: { eq: "index-page" } }) {
       frontmatter {
         title
+        subtitle
         citation {
           content
           auteur

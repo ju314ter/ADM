@@ -4,7 +4,7 @@ import { graphql } from 'gatsby'
 
 import Layout from '../components/Layout'
 
-import '../components/decouverte.sass'
+import '../sass/decouverte.sass'
 
 // import ImageDecouverte from '../img/decouverte.jpg'
 
@@ -20,7 +20,7 @@ export const DecouvertePageTemplate = ({
 
     return (
         <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'top', flexWrap: 'wrap' }}>
-            <div className="full-width-image"
+            <div className="full-width-image landing"
                 style={{
                     backgroundImage: `url(${
                         !!illustration.childImageSharp ? illustration.childImageSharp.fluid.src : illustration
@@ -35,8 +35,18 @@ export const DecouvertePageTemplate = ({
                     alignItems: 'center',
                     minHeight: '100vh', // ou hauteur des cartes
                 }}>
+                <h1>Le vol à voile kesako ?</h1>
                 {intro.map((paragraphe, index) => {
-                    return <p className="intro-p" key={index}>{paragraphe}</p>
+                    return <p className="intro-p" 
+                                key={index}
+                                data-sal="slide-up"
+                                data-sal-duration="1000"
+                                data-sal-easing="ease"
+                                style={{
+                                    position:'relative',
+                                    left: index % 2 === 0 ? '5%' : '-5%'
+                                }}>
+                        {paragraphe}</p>
                 })}
             </div>
             <div className="decouverte-main">
@@ -50,14 +60,18 @@ export const DecouvertePageTemplate = ({
                                         !!section.illustration.childImageSharp ? section.illustration.childImageSharp.fluid.src : section.illustration
                                         })`,
                                     backgroundSize: 'cover',
-                                    float: index % 2 == 0 ? 'left' : 'right',
-                                    margin: index % 2 == 0 ? '15px' : '15px'
+                                    float: index % 2 === 0 ? 'left' : 'right',
+                                    margin: '15px'
                                 }} />
                                 <div>
                                     <h1>{section.titre}</h1>
                                     {
                                         section && section.paragraphes.map((paragraphe, index) => {
-                                            return <p key={index}>{paragraphe}</p>
+                                            return <p key={index}
+                                                        data-sal="slide-up"
+                                                        data-sal-duration="1000"
+                                                        data-sal-easing="ease"
+                                                >{paragraphe}</p>
                                         })
                                     }
                                 </div>

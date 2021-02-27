@@ -1,6 +1,7 @@
 ---
 templateKey: index-page
-title: Les Ailes du Maine || Planeur
+title: Les Ailes du Maine
+subtitle: Planeur
 citation:
   content: Eh ! qu'aimes-tu donc extraordinaire Etranger ? J'aime les nuages... les nuages qui passent...là-bas...là-bas... les merveilleux nuages !
   auteur: Ch. Baudelaire, "L'étranger"

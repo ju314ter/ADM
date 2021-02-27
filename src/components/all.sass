@@ -107,6 +107,7 @@ body
     border: 1px solid hsl(171, 100%, 29%);
     text-decoration: none;
     text-transform: uppercase;
+    text-align: center;
     margin: 15px;
     padding: 10px;
     font-family: Muli;
@@ -119,6 +120,10 @@ body
 
     &:hover
       background: hsl(171, 100%, 29%);
+  
+  .activeLink
+    color: white;
+    background: hsl(171, 100%, 29%);
 
 .hidden-menu
   transform: translate(0,-100%);
@@ -135,6 +140,7 @@ body
 
 .cloud
   position: absolute;
+  height: 75vh;
   bottom: 0;
   max-width: 100vw;
   opacity: 0.8;
@@ -150,8 +156,8 @@ body
 .cloud:nth-child(5)
   animation: animate 40s linear infinite;
 
-.index-titre
-  font-size: 4em;
+.index-title
+  font-size: 3em;
   text-shadow: 1px 1px #ADADAD;
   position: absolute;
   top: 160px;
@@ -166,22 +172,45 @@ body
 
   @media screen and ( max-width: 1024px )
     font-size: 2.5rem;
+
+.index-subtitle
+  font-size: 2.5em;
+  text-shadow: 1px 1px #ADADAD;
+  position: absolute;
+  top: 250px;
+  left: 15%;
+  font-weight: 400;
+  color: white;
+  line-height: 1;
+  letter-spacing: 6px;
+  padding: 0.25em;
+  text-transform: uppercase;
+
+  @media screen and ( max-width: 1024px )
+    font-size: 2rem;
     
 
 .index-citation
-  position: absolute;
   display: flex;
   font-size: 1.5em;
   justify-content: flex-end;
   align-items: center;
   text-align: center;
   width: 100%;
-  top: 60%;
+  bottom: 0;
   color: white;
+  margin: 1em;
 
   .citation-wrapper
-    width: 60%;
-    color: #fafafa;
+    color: #0e0e0e;
+    padding: 2em;
+    font-style: italic;
+
+    h2 
+      font-size: 1.15em;
+    
+    p 
+      font-size: 1.1em;
 
 .section-presentation
   background: linear-gradient(0deg, rgba(0,148,126,1) 0%, rgba(250,250,250,1) 100%);  display: flex;
@@ -234,7 +263,7 @@ body
       font-weight: 600;
 
     &:hover
-      transform: scale(1.15);
+      transform: scale(1.1);
 
 .section-offres
   display: flex;
@@ -256,7 +285,7 @@ body
     box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
     background-size: 120% 120%;
     filter: brightness(0.7) saturate(150%) contrast(190%);
-    transition: transform 200ms ease-in-out, filter 2s ease-in-out, background-size 2s ease-in-out;
+    transition: transform 200ms linear, filter 2s linear, background-size 2s linear;
 
     @media screen and ( max-width: 768px )
       flex: 0 0 90%;
@@ -277,7 +306,7 @@ body
 
     .content-card
       display: flex;
-      width: 75%;
+      width: 50vh;
       text-align: center;
       justify-content: center;
       align-items: center;
