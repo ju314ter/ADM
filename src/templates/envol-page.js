@@ -4,6 +4,8 @@ import { graphql } from 'gatsby'
 
 import Layout from '../components/Layout'
 
+import BackgroundImage from 'gatsby-background-image'
+
 export const EnvolPageTemplate = ({
     intro,
     illustration,
@@ -17,11 +19,10 @@ useEffect(()=>{
 
     return (
         <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'top', flexWrap: 'wrap' }}>
-        <div className="full-width-image landing"
+        <BackgroundImage className="full-width-image landing"
+            tag='envolbackground'
+            fluid={illustration.childImageSharp.fluid}
             style={{
-                backgroundImage: `url(${
-                    !!illustration.childImageSharp ? illustration.childImageSharp.fluid.src : illustration
-                    })`,
                 backgroundPosition: `center`,
                 backgroundAttachment: `fixed`,
                 backgroundSize: 'cover',
@@ -46,7 +47,7 @@ useEffect(()=>{
                             }}>
                     {paragraphe}</p>
             })} */}
-        </div>
+        </BackgroundImage>
         <div className="envol-main">
         
         </div>

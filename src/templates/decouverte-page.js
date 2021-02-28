@@ -4,6 +4,8 @@ import { graphql } from 'gatsby'
 
 import Layout from '../components/Layout'
 
+import BackgroundImage from 'gatsby-background-image'
+
 import '../sass/decouverte.sass'
 
 // import ImageDecouverte from '../img/decouverte.jpg'
@@ -20,11 +22,10 @@ export const DecouvertePageTemplate = ({
 
     return (
         <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'top', flexWrap: 'wrap' }}>
-            <div className="full-width-image landing"
+            <BackgroundImage className="full-width-image landing"
+                tag='decouvertebackground'
+                fluid={illustration.childImageSharp.fluid}
                 style={{
-                    backgroundImage: `url(${
-                        !!illustration.childImageSharp ? illustration.childImageSharp.fluid.src : illustration
-                        })`,
                     backgroundPosition: `center`,
                     backgroundAttachment: `fixed`,
                     backgroundSize: 'cover',
@@ -33,7 +34,7 @@ export const DecouvertePageTemplate = ({
                     flexDirection: 'column',
                     justifyContent: 'center',
                     alignItems: 'center',
-                    minHeight: '100vh', // ou hauteur des cartes
+                    minHeight: '100vh',
                     boxShadow: 'inset 0px -8px 22px -10px rgba(255,255,255,1)'
                 }}>
                 <h1>Le vol à voile kesako ?</h1>
@@ -49,7 +50,7 @@ export const DecouvertePageTemplate = ({
                                 }}>
                         {paragraphe}</p>
                 })}
-            </div>
+            </BackgroundImage>
             <div className="decouverte-main">
                 {
                     sections && sections.map((section, index) => {

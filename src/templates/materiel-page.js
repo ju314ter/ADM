@@ -4,6 +4,8 @@ import { graphql } from 'gatsby'
 
 import Layout from '../components/Layout'
 
+import BackgroundImage from 'gatsby-background-image'
+
 import '../sass/materiel.sass'
 
 import Card from '@material-ui/core/Card';
@@ -21,11 +23,10 @@ export const MaterielPageTemplate = ({
 
     return (
         <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'top', flexWrap: 'wrap' }}>
-            <div className="full-width-image landing"
+            <BackgroundImage className="full-width-image landing"
+                tag='materielbackground'
+                fluid={illustration.childImageSharp.fluid}
                 style={{
-                    backgroundImage: `url(${
-                        !!illustration.childImageSharp ? illustration.childImageSharp.fluid.src : illustration
-                        })`,
                     backgroundPosition: `center`,
                     backgroundAttachment: `fixed`,
                     backgroundSize: 'cover',
@@ -50,7 +51,7 @@ export const MaterielPageTemplate = ({
                                 }}>
                         {paragraphe}</p>
                 })}
-            </div>
+            </BackgroundImage>
             <div className="materiel-main">
                 {
                     materiel && Object.keys(materiel).map((sectionName, index)=>{

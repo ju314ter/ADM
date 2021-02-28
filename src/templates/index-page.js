@@ -2,6 +2,8 @@ import React, {useEffect} from 'react'
 import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
 
+import BackgroundImage from 'gatsby-background-image'
+
 import Layout from '../components/Layout'
 
 import Card from '@material-ui/core/Card';
@@ -34,17 +36,16 @@ useEffect(()=>{
           overflow: 'hidden'
         }}
       >
-        <div className="full-width-image kenburns-bottom-right"
+        <BackgroundImage className="full-width-image kenburns-bottom-right"
+          tag='indexbackground'
+          fluid={image.childImageSharp.fluid}
           style={{
-            backgroundImage: `url(${
-              !!image.childImageSharp ? image.childImageSharp.fluid.src : image
-              })`,
             backgroundPosition: `bottom right`,
             backgroundAttachment: `fixed`,
             backgroundSize: 'cover',
             height: '100%'
           }}>
-        </div>
+        </BackgroundImage>
       </div>
       <div className="clouds">
         <img src="../img/clouds/cloud1.png" alt="cloud" className="cloud"></img>
