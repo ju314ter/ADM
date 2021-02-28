@@ -13,7 +13,7 @@ presentationItems:
     link : /decouverte
     image: '/img/imgcard.jpg'
     bulletPoints:
-      - bulletpoint1
+      - bulletpoint1 to change
       - bulletpoint2
       - bulletpoint3
   - titre: Le club
