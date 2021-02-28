@@ -34,7 +34,8 @@ export const MaterielPageTemplate = ({
                     flexDirection: 'column',
                     justifyContent: 'center',
                     alignItems: 'center',
-                    minHeight: '100vh'
+                    minHeight: '100vh',
+                    boxShadow: 'inset 0px -8px 22px -10px rgba(255,255,255,1)'
                 }}>
                 <h1>Comment fonctionne un planeur ?</h1>
                 {intro && intro.map((paragraphe, index) => {
@@ -58,13 +59,22 @@ export const MaterielPageTemplate = ({
                             {
                                 materiel[sectionName] && materiel[sectionName].map((planeur, index)=>{
                                 return (
-                                    <Card key={index}>
+                                  <div key={index}
+                                        data-sal="slide-up"
+                                        data-sal-delay={1*(index*150)}
+                                        data-sal-duration="800"
+                                        data-sal-easing="ease-out">
+                                    <Card className='card'
+                                            data-sal="slide-up"
+                                            data-sal-duration="1000"
+                                            data-sal-easing="ease"
+                                    >
                                         <CardActionArea>
                                             <CardMedia
                                             component="img"
                                             alt={planeur.nom}
                                             height="140"
-                                            image={planeur.uri_photo}
+                                            image={planeur.uri_photo.childImageSharp.fluid.src}
                                             title={planeur.nom}
                                             />
                                             <CardContent>
@@ -72,13 +82,14 @@ export const MaterielPageTemplate = ({
                                                 <p>{planeur.description}</p>
                                             </CardContent>
                                         </CardActionArea>
-                                        <CardActions>
-                                            <Button size="small" color="primary">
+                                        <CardActions style={{justifyContent: 'center'}}>
+                                            <Button size="small" color="primary" className="btn">
                                                 <a href={planeur.hyperlink}>En apprendre plus</a>
                                             </Button>
                                         </CardActions>
                                     </Card>
-                                    )
+                                  </div>
+                                  )
                                 })
                             }
                         </div>
@@ -133,19 +144,40 @@ export const pageQuery = graphql`
         materiel {
             planeursBi {
                 nom
-                uri_photo
+                type
+                uri_photo {
+                    childImageSharp {
+                      fluid(maxWidth: 2048, quality: 100) {
+                        ...GatsbyImageSharpFluid
+                      }
+                    }
+                  }
                 hyperlink
                 description
             }
             planeursMono {
                 nom
-                uri_photo
+                type
+                uri_photo {
+                    childImageSharp {
+                      fluid(maxWidth: 2048, quality: 100) {
+                        ...GatsbyImageSharpFluid
+                      }
+                    }
+                  }
                 hyperlink
                 description
             }
             autre {
                 nom
-                uri_photo
+                type
+                uri_photo {
+                    childImageSharp {
+                      fluid(maxWidth: 2048, quality: 100) {
+                        ...GatsbyImageSharpFluid
+                      }
+                    }
+                  }
                 hyperlink
                 description
             }

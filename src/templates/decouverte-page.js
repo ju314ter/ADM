@@ -34,6 +34,7 @@ export const DecouvertePageTemplate = ({
                     justifyContent: 'center',
                     alignItems: 'center',
                     minHeight: '100vh', // ou hauteur des cartes
+                    boxShadow: 'inset 0px -8px 22px -10px rgba(255,255,255,1)'
                 }}>
                 <h1>Le vol à voile kesako ?</h1>
                 {intro.map((paragraphe, index) => {

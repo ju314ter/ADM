@@ -15,7 +15,6 @@ const TemplateWrapper = ({ children }) => {
 
   useScrollPosition(
     ({ prevPos, currPos }) => {
-      console.log(currPos.y)
       const isShow = currPos.y > prevPos.y || currPos.y === 0
       if (isShow !== hideOnScroll) setHideOnScroll(isShow)
     },

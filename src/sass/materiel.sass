@@ -19,6 +19,26 @@
 
 
 .section
-    width: 100%;
+    max-width: 100%;
     display: flex;
+    flex: 0 0 100%;
+    flex-wrap: wrap;
     justify-content: space-evenly;
+
+    .card
+        width: 320px;
+        margin: 2em;
+
+    .btn
+        font-weight: 600;
+        color: white;
+        background: hsl(171,100%,29%);
+        border: 1px solid hsl(171,100%,29%);
+        transition: all 200ms;
+        
+        a
+            color: white;
+            text-decoration: none;
+        
+        &:hover
+            background: hsl(171,75%,40%);

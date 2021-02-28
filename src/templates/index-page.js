@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
 
@@ -21,6 +21,9 @@ export const IndexPageTemplate = ({
   presentationItems,
   offreItems
 }) => {
+
+useEffect(()=>{
+})
 
   return (
     <div>
@@ -85,7 +88,7 @@ export const IndexPageTemplate = ({
       </div>
       <section className="section-presentation">
         <div className="presentation-items-wrapper">
-          {presentationItems.map((item, index) => (
+          {presentationItems && presentationItems.map((item, index) => (
             <div key={item.titre} className="presentation-item"
             data-sal="slide-up"
             data-sal-delay={150*index}
@@ -127,7 +130,7 @@ export const IndexPageTemplate = ({
           backgroundAttachment: `fixed`,
           backgroundSize: 'cover',
         }}>
-        {offreItems.map((item, index) => (
+        {offreItems && offreItems.map((item, index) => (
           <div key={item.titre} className="offre-item"
             style={{
               backgroundImage: `url(${
@@ -147,7 +150,10 @@ export const IndexPageTemplate = ({
               }}>
                 <h2>{item.titre}</h2>
               </div>
-              <Button className='btn-card'>Se renseigner</Button>
+              <Button className='btn-card'>
+                <Link to='/envol' className="inner-link">Se renseigner</Link>
+              </Button>
+              
             </div>
           </div>
         ))}

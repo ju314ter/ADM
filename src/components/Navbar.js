@@ -27,8 +27,8 @@ const Navbar = ({ show }) => {
           <img src={logo} alt="Logo" style={{ width: 65 }} />
         </Link>
       </div>
-      <div className="right-links is-flex flex-end">
-        <a to="https://www.facebook.com/AilesDuMaine/" className="link has-text-white-ter">
+      <div className="right-links is-flex flex-end" style={{cursor: 'pointer'}}>
+        <a href="https://www.facebook.com/AilesDuMaine/" className="link has-text-white-ter">
           Facebook
           </a>
         <Link to="/tarif" activeClassName="activeLink" className="link has-text-white-ter">
