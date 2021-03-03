@@ -6,6 +6,14 @@ import Layout from '../components/Layout'
 
 import BackgroundImage from 'gatsby-background-image'
 
+import Accordion from '@material-ui/core/Accordion';
+import AccordionSummary from '@material-ui/core/AccordionSummary';
+import AccordionDetails from '@material-ui/core/AccordionDetails';
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+
+
+import '../sass/envol.sass'
+
 export const EnvolPageTemplate = ({
     intro,
     illustration,
@@ -13,13 +21,11 @@ export const EnvolPageTemplate = ({
 }) => {
 
 useEffect(()=>{
-    console.log(intro)
-    console.log(sections)
 })
 
     return (
         <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'top', flexWrap: 'wrap' }}>
-        <BackgroundImage className="full-width-image landing"
+        <BackgroundImage className="full-width-image landing-envol"
             tag='envolbackground'
             fluid={illustration.childImageSharp.fluid}
             style={{
@@ -35,22 +41,48 @@ useEffect(()=>{
                 boxShadow: 'inset 0px -8px 22px -10px rgba(255,255,255,1)'
             }}>
             <h1>Comment prendre son envol ?</h1>
-            {/* {intro && intro.map((paragraphe, index) => {
-                return <p className="intro-p" 
-                            key={index}
-                            data-sal="slide-up"
-                            data-sal-duration="1000"
-                            data-sal-easing="ease"
-                            style={{
-                                position:'relative',
-                                left: index % 2 === 0 ? '5%' : '-5%'
-                            }}>
-                    {paragraphe}</p>
-            })} */}
+
+            {intro && intro.map((paragraphe, index) => {
+                    return <p className="intro-p" 
+                                key={index}
+                                data-sal="slide-up"
+                                data-sal-duration="1000"
+                                data-sal-easing="ease"
+                                style={{
+                                    position:'relative',
+                                    left: index % 2 === 0 ? '5%' : '-5%'
+                                }}>
+                        {paragraphe}</p>
+                })}
+            <div>
+
+                {sections && sections.map((section, i)=>{
+                    return (
+                        <Accordion key={i}>
+                            <AccordionSummary className="accordion-section-title-wrapper" expandIcon={<ExpandMoreIcon />}>
+                                <h1 style={{color:"black"}}>{section.titre}</h1>
+                            </AccordionSummary>
+                            <AccordionDetails className="accordion-section-content-wrapper">
+                                {section.content && section.content.map((options, i)=>{
+                                    return (
+                                        <div key={i} className="options-wrapper">
+                                            <h2 style={{paddingLeft: 15}}>{options.titre}</h2>
+                                            {options.paragraphes && options.paragraphes.map((paragraphe, i)=>{
+                                                return <p key={i}
+                                                data-sal="slide-up"
+                                                data-sal-duration="1000"
+                                                data-sal-easing="ease"
+                                                >{paragraphe}</p>
+                                            })}
+                                        </div>
+                                    )
+                                })}
+                            </AccordionDetails>
+                        </Accordion>
+                    )
+                })}
+            </div>
         </BackgroundImage>
-        <div className="envol-main">
-        
-        </div>
     </div>
     )
 }
@@ -69,7 +101,7 @@ const EnvolPage = ({ data }) => {
             <EnvolPageTemplate
                 intro={frontmatter.intro}
                 illustration={frontmatter.illustration}
-                section={frontmatter.sections}
+                sections={frontmatter.sections}
             />
         </Layout>
     )
